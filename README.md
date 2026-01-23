@@ -1,6 +1,8 @@
 # test
 
-
+## Introduction
+* Name: Rohan
+* Activities I like to do: Mountain Bike, Tennis
 
 ## Getting started
 
