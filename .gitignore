@@ -1,0 +1,7 @@
+# Ignore Node modules inside Task-5 worktree
+Task-5/**/node_modules/
+Task-5/**/node_modules/*
+
+# Ignore common local artifacts
+.DS_Store
+*.log
