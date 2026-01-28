@@ -14,5 +14,5 @@ jobs:
           echo "Hello World"
           echo "Pipeline is running"
 
-      - name: Failure Check
-        run: exit 1 # Pipeline will fail
+      - name: Success Check
+        run: exit 0 # Pipeline will succeed
