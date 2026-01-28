@@ -12,11 +12,11 @@ jobs:
       - name: Run Script
         run: |
           echo "Hi I'm testing environment setup"
-
       - name: Success Check
         run: exit 0 # Pipeline will succeed
 
+
       # Optional: Failure example step
-      - name: Failure Check
-        if: ${{ always() }} # Executes even if previous fails(optional)
-        run: exit 1 # Pipeline will fail
+      #- name: Failure Check
+      #  if: ${{ always() }} # Executes even if previous fails(optional)
+      #  run: exit 1 # Pipeline will fail
