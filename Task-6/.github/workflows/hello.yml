@@ -1,0 +1,18 @@
+name: Simple Pipeline
+
+on: push # Trigger the workflow on every push
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest # Runner
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2 # step to checkout code
+
+      - name: Run Script
+        run: |
+          echo "Hello World"
+          echo "Pipeline is running"
+
+      - name: Failure Check
+        run: exit 1 # Pipeline will fail
