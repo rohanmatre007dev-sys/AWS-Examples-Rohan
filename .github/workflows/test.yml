@@ -1,22 +1,46 @@
 name: Test Pipeline
 
-on: push # Trigger the workflow whenever the code is pushed
+# Stages:
+# 1. Build
+# 2. Test
+# 3. Lint
+# 4. Package
+# 5. Deploy
+
+on: push
 
 jobs:
-  trail-job:
-    runs-on: ubuntu-latest # Runner
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3 # step to checkout code
+      - uses: actions/checkout@v3
+      - run: echo "Building Stage Running..."
 
-      - name: Run Script
-        run: |
-          echo "Hi I'm testing environment setup"
-      - name: Success Check
-        run: exit 0 # Pipeline will succeed
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Testing Stage Running..."
 
+  lint:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Linting Stage Running..."
 
-      # Optional: Failure example step
-      #- name: Failure Check
-      #  if: ${{ always() }} # Executes even if previous fails(optional)
-      #  run: exit 1 # Pipeline will fail
+  package:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Packaging Stage Running..."
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: package
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Deploying Stage Running..."
+      - run: echo "Deployment Successful!"
