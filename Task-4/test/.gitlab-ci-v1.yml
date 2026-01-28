@@ -1,0 +1,9 @@
+stages:
+  - test
+
+hello_job:
+  stage: test
+  script:
+    - echo "Hello World"
+    - echo "Pipeline is running on GitLab CI"
+    - exit 0 # Pipeline will succeed
