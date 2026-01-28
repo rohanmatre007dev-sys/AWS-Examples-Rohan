@@ -1,0 +1,2 @@
+1. Created github Actions/GitLab Pipeline
+2. Created CI/CD
